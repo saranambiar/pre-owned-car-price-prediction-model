@@ -1,0 +1,10 @@
+Flask
+gunicorn
+pandas
+numpy
+joblib
+scikit-learn
+replicate
+google-generativeai
+google
+markdown2
