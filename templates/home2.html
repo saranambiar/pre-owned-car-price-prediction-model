@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Price Prediction</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+  </head><body>
+  <style>
+    body {
+      font-family: 'Arial, sans-serif';
+      margin: 0;
+      background: linear-gradient(300deg, #5e6264, #232525, #020202);
+      background-size: 180% 180%;
+      animation: gradient-animation 18s ease infinite;
+    }
+      label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #6fc0c5;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    header {
+      color: white;
+      height: 136px;
+      width: 583px;
+      padding-top: 60px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    section {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: transparent;
+      border-radius: 8px;
+      box-shadow: 0 0 10px white;
+      opacity: 0.8;
+    }
+    h2 {
+      color: #f6fafc;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #6fc0c5;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #16a085;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #resultContainer {
+      margin-top: 20px;
+    }
+  </style>
+
+
+
+
+  <header>
+    <h1 position center>Pre-Owned Car Prediction Model</h1>
+  </header>
+  <section > 
+    <form action="/predict" method="post"  class="two-column-form">
+      <div class="form-group">
+        <label for="title">Brand:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" required>
+      </div>
+      <div class="form-group">
+        <label for="Seller">Seller type:</label>
+        <input type="text" id="Seller" name="Seller" required>
+      </div>
+      <div class="form-group">
+        <label for="Transmission">Transmission type:</label>
+        <input type="text" id="Transmission" name="Transmission" required>
+      </div>
+      <div class="form-group">
+        <label for="Fuel">Fuel type:</label>
+        <input type="text" id="Fuel" name="Fuel" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Vehicle age:</label>
+        <input type="number" id="age" name="age" required>
+      </div>
+      <div class="form-group">
+        <label for="km">Km driven:</label>
+        <input type="number" id="km" name="km" required>
+      </div>
+      <div class="form-group">
+        <label for="engine">Engine:</label>
+        <input type="number" id="engine" name="engine" required>
+      </div>
+      <div class="form-group">
+        <label for="seats">Seats:</label>
+        <input type="number" id="seats" name="seats" required>
+      </div>
+      <div class="form-group">
+        <label for="mileage">Mileage:</label>
+        <input type="number" id="mileage" name="mileage" required>
+      </div>
+      <button type="submit" class="button-container">Predict Price</button>
+    </form>
+    <div id="resultContainer" class="resultContainer">
+      {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+      {% endif %}
+    </div>
+  </section>
+</body>
+</html>
